@@ -11,6 +11,7 @@ import david.hoyos.xpertgroup.dominio.ProcesamientoOperaciones;
 public class IniciarApplicacion {
 
 	public static void main(String[] args) throws IOException {
+		List<Integer> resultadoOperaciones = new ArrayList<>();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 		String casosDePruebas = bufferedReader.readLine();
@@ -26,7 +27,12 @@ public class IniciarApplicacion {
 			for (int operacion = 0; operacion < numeroOperaciones; operacion++) {
 				operaciones.add(bufferedReader.readLine().toString());
 			}
-			//ProcesamientoOperaciones.procesarOperaciones(tamañoMatriz,operaciones);
+			resultadoOperaciones.addAll(ProcesamientoOperaciones.procesarOperaciones(tamañoMatriz,
+					operaciones));
 		}
+		
+		resultadoOperaciones.forEach(a->{
+			System.out.println(a);
+		});
 	}
 }
